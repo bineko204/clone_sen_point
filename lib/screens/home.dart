@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [Colors.blue, Colors.red])),
+                                colors: [Colors.purple, Colors.red])),
                       ),
                     ),
                   ],
