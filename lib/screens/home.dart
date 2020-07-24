@@ -49,9 +49,11 @@ class Home extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: 120,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.black,
-                        ),
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [Colors.blue, Colors.red])),
                       ),
                     ),
                   ],
