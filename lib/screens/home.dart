@@ -1,8 +1,10 @@
 import 'package:clone_senpoint/widgets/home/card-basic.dart';
 import 'package:clone_senpoint/widgets/home/category.dart';
 import 'package:clone_senpoint/widgets/custom-sliver-appbar.dart';
+import 'package:clone_senpoint/widgets/home/hot-deals.dart';
 import 'package:clone_senpoint/widgets/home/suggest.dart';
 import 'package:flutter/material.dart';
+
 
 class Home extends StatelessWidget {
   @override
@@ -14,6 +16,7 @@ class Home extends StatelessWidget {
             SliverPersistentHeader(
               delegate: CustomSliverAppbar(expandedHeight: 200),
               pinned: true,
+              // floating: true,
             ),
             SliverToBoxAdapter(
               child: Category(),
@@ -32,34 +35,19 @@ class Home extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Hot deals!',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        height: 120,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [Colors.purple, Colors.red])),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              child: HotDeals(),
             ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: SizedBox(
+        height: 56,
+        child: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
+            BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('explose'))
           ],
         ),
       ),
