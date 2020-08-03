@@ -1,22 +1,16 @@
-import 'package:clone_senpoint/blocs/near_shop_bloc/near_shop_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CardBasic extends StatelessWidget {
   final String title;
+  final List list;
   const CardBasic({
     Key key,
-    this.title,
+    this.title, this.list,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NearShopBloc, NearShopState>(
-      builder: (context, state) {
-        print(state.toString());
-        if (state is NearShopLoadSuccess) {
-          final list = state.listShop;
-          return Container(
+    return Container(
             padding: EdgeInsets.all(16),
             child: Column(
               children: <Widget>[
@@ -114,10 +108,7 @@ class CardBasic extends StatelessWidget {
               ],
             ),
           );
-        }
-        return Text('adfasdf');
-      },
-    );
+        
   }
 
   _buildCardDesc(data) {

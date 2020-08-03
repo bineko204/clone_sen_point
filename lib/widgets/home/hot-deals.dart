@@ -1,11 +1,11 @@
-import 'package:clone_senpoint/blocs/hot_deals_bloc/hot_deals_bloc.dart';
+import 'package:clone_senpoint/models/hot_deals.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HotDeals extends StatelessWidget {
+  final HotDeal data;
   const HotDeals({
-    Key key,
+    Key key, this.data,
   }) : super(key: key);
   Color hexToColor(String code) {
     return new Color(int.parse(code.replaceFirst('#', '0xff')));
@@ -13,11 +13,7 @@ class HotDeals extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HotDealsBloc, HotDealsState>(builder: (context, state) {
-      print(state.toString());
-      if (state is HotDealsSuccess) {
-        final data = state.data;
-        return Container(
+    return Container(
           color: Colors.white,
           padding: EdgeInsets.all(16),
           child: Column(
@@ -173,8 +169,6 @@ class HotDeals extends StatelessWidget {
             ],
           ),
         );
-      }
-      return Text('abcxyz');
-    });
+      
   }
 }
